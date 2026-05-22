@@ -1,0 +1,210 @@
+/* Mona Aslam Website Styles */
+
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, a, img, footer, header, nav, section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.header-bar {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.header-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+}
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.header-nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+.header-nav a:hover {
+    background: #f2f2f2;
+    color: #2b7a78;
+}
+.header-nav .social-icon {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.hero, .product-hero, .business-hero {
+    background: #def2f1;
+    padding: 3rem 0 2rem 0;
+    text-align: center;
+}
+
+.hero-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    border: 4px solid #2b7a78;
+}
+
+.hero-buttons {
+    margin-top: 1.5rem;
+}
+
+
+.btn-main {
+    background: #2b7a78;
+    color: #fff !important;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-main:hover {
+    background: #c9a96e;
+    color: #111 ;
+
+    transition: background 0.2s;
+    display: inline-block;
+}
+.btn-main:hover {
+    background: #205e5a;
+}
+
+section {
+    margin: 2.5rem 0;
+}
+
+.product-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 1.5rem 1.2rem;
+    width: 300px;
+    max-width: 90vw;
+}
+
+.card h3 {
+    color: #2b7a78;
+    margin-top: 0;
+}
+
+.symptoms ul, .business-plan ul, .business-story ul {
+    padding-left: 1.2rem;
+}
+
+.symptoms li, .business-plan li, .business-story li {
+    margin-bottom: 0.5rem;
+}
+
+.faq dl {
+    margin: 0;
+}
+
+.faq dt {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.faq dd {
+    margin-left: 0;
+    margin-bottom: 0.7rem;
+}
+
+
+footer {
+    width: 100%;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 18px 0 10px 0;
+    font-size: 0.98rem;
+}
+footer a {
+    color: #2b7a78;
+    text-decoration: underline;
+    margin: 0 6px;
+}
+
+.application-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.application-form input, .application-form textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.application-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+@media (max-width: 700px) {
+    .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 8px;
+    }
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+    }
+}

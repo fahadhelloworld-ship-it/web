@@ -1,0 +1,446 @@
+/* Product Page Styles - Professional Design */
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --dark: #111;
+  --cream: #faf7f2;
+  --white: #fff;
+  --text: #1a1a1a;
+  --muted: #666;
+  --border: #e0dcd5;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  font-family: 'Lato', sans-serif; 
+  background: var(--white); 
+  color: var(--text); 
+  line-height: 1.7; 
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.header-bar {
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.header-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header-nav a:hover {
+  background: #f2f2f2;
+  color: var(--gold);
+}
+
+/* ── BUTTONS ── */
+.btn, .btn-main {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark) !important;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn:hover, .btn-main:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 169, 110, 0.35);
+}
+
+.btn-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+
+.btn-cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 169, 110, 0.35);
+}
+
+/* ── HERO SECTION ── */
+.product-hero {
+  background: #0d1b2a;
+  padding: 70px 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.product-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 5vw, 46px);
+  font-weight: 700;
+  max-width: 720px;
+  margin: 0 auto 24px;
+  line-height: 1.2;
+}
+
+.product-hero p {
+  color: #bbb;
+  font-size: 16px;
+  max-width: 580px;
+  margin: 0 auto 28px;
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1f2a40, #0d1b2a);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2a3a50;
+  color: #3a4a60;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.product-hero .cta-wrap {
+  margin-top: 20px;
+}
+
+/* ── PRODUCT DETAILS / WHY IT WORKS ── */
+.product-details {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.product-details h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.product-details > p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 28px;
+  background: var(--white);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+.card ul {
+  list-style: none;
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 2.2;
+}
+
+.card ul li {
+  margin-bottom: 12px;
+}
+
+.card ul li::before {
+  content: "✓  ";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* ── SYMPTOMS SECTION ── */
+.symptoms {
+  padding: 70px 20px;
+  background: var(--cream);
+}
+
+.symptoms h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.symptoms-intro {
+  font-size: 16px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.symptom-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.symptom-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.symptom-emoji {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.symptom-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.symptom-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── TESTIMONIAL SECTION ── */
+.testimonial {
+  padding: 70px 20px;
+}
+
+.testimonial h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3.5vw, 32px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial > p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 24px;
+  line-height: 1.8;
+}
+
+.testimonial ul {
+  list-style: none;
+  max-width: 700px;
+  margin: 24px auto;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.testimonial ul li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+
+.testimonial ul li::before {
+  content: "→  ";
+  color: var(--gold);
+  font-weight: 700;
+  margin-left: -20px;
+  margin-right: 8px;
+}
+
+/* ── FAQ SECTION ── */
+.faq {
+  padding: 70px 20px;
+  background: var(--cream);
+}
+
+.faq h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.faq dl {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq dt {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq dt:hover {
+  color: var(--gold);
+}
+
+.faq dd {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 12px 0 24px 0;
+  margin: 0;
+}
+
+/* ── CTA WRAPPER ── */
+.cta-wrap {
+  text-align: center;
+}
+
+.cta-sub {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .header-nav {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .header-nav a {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+
+  .product-hero {
+    padding: 50px 20px;
+  }
+
+  .product-details,
+  .symptoms,
+  .testimonial,
+  .faq {
+    padding: 50px 20px;
+  }
+
+  .product-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-bar {
+    padding: 12px 16px;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
+  }
+
+  .header-nav {
+    gap: 8px;
+  }
+
+  .btn, .btn-main, .btn-cta {
+    padding: 14px 28px;
+    font-size: 13px;
+  }
+}
