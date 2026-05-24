@@ -1,0 +1,434 @@
+/* Mona Aslam Website - Index Page */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: #1b86b0;
+  color: #222;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ════════════════ HERO SECTION ════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+/* Blue gradient background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  z-index: 0;
+}
+
+/* Hero content wrapper */
+ .hero-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+} 
+
+/* Profile Image */
+.hero-img {
+  width: 240px;
+  height: 380px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  /* animation:fadein 1s ease-out 0.1s both; */
+  border: none !important;
+  outline: none !important;
+  display: block;
+  padding: 0 !important;
+  margin: 0 auto 30px auto !important;
+  background: transparent !important;
+}  
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Text (Name + Tagline) */
+.hero-text {
+  color: #fff;
+  animation: fadeIn 1s ease-out 0.2s both;
+  margin-top: 15px;
+}
+
+.hero-text h1 {
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text h1 span {
+  color: #fff;
+}
+
+.hero-text .checkmark {
+  font-size: 35px;
+  margin-left: 8px;
+  display: inline-block; 
+  background: rgb(12, 116, 234);
+} 
+
+
+.hero-text .tagline {
+  font-size: 25px;
+  font-weight: 50;
+  letter-spacing: 0.5px;
+  margin-top: 15px; 
+ line-height: 1.0;  
+  opacity: 0.95;
+  font-family: 'calibri', sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ════════════════ BUTTONS ════════════════ */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  height: 130%;
+  width: 130%;
+  max-width: 600px;
+  margin-top: 15px;
+  animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  padding: 10px 60px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: arial, sans-serif;
+  box-shadow: 0 3px 8px rgb(202, 232, 245);
+}
+
+.btn-primary {
+  background: #c2eef5;
+  color: black;
+ 
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  background: #cdf0f6;
+   box-shadow: 0px 3px 3px rgb(214, 220, 224) ;
+}
+
+.btn-primary:active {
+  transform: translateY(-2px);
+  /* animation:forwards */
+}
+
+/* ════════════════ SOCIAL ROW ════════════════ */
+.social-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; 
+ }
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  font-family: 'calibri', sans-serif;
+  font-weight: 500;
+}
+
+.social-link svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+  padding: 6px;
+  transition: all 0.3s ease;
+  box-sizing: content-box;
+} 
+
+/* Facebook */
+.social-link:nth-child(1) svg {
+  background: #1877F2;
+}
+
+/* Instagram */
+.social-link:nth-child(2) svg {
+  background: linear-gradient(135deg, #F77737 0%, #E1306C 50%, #C13584 100%);
+}
+
+/* TikTok */
+ .social-link:nth-child(3) svg {
+  background: #000;
+} 
+
+.social-link span {
+  display: block;
+  color: #fff;
+}
+
+ /* ════════════════ RESPONSIVE ════════════════  */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-wrapper {
+    gap: 25px;
+  }
+
+  .hero-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
+
+  .hero-text .checkmark {
+    font-size: 36px;
+  }
+
+  .hero-text .tagline {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+
+  .social-row {
+    gap: 20px;
+  }
+
+  .social-link svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero-wrapper {
+    gap: 20px;
+  }
+
+  .hero-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-text .checkmark {
+    font-size: 32px;
+  }
+
+  .hero-text .tagline {
+    font-size: 15px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .hero-content {
+    gap: 12px;
+  }
+
+  .social-row {
+    gap: 16px;
+  }
+
+  .social-link svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-link {
+    font-size: 11px;
+    gap: 6px;
+  }
+}
+
+/* ════════════════ OTHER PAGES STYLES ════════════════ */
+.product-hero,
+.business-hero {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* SECTIONS */
+section {
+  margin: 2.5rem 0;
+}
+
+/* CARDS */
+.product-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem 1.2rem;
+  width: 300px;
+  max-width: 90vw;
+}
+
+.card h3 {
+  color: #0284c7;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* LISTS */
+.symptoms ul,
+.business-plan ul,
+.business-story ul {
+  padding-left: 1.2rem;
+}
+
+.symptoms li,
+.business-plan li,
+.business-story li {
+  margin-bottom: 0.5rem;
+}
+
+/* FAQ */
+.faq dl {
+  margin: 0;
+}
+
+.faq dt {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq dd {
+  margin-left: 0;
+  margin-bottom: 0.7rem;
+}
+
+/* FORMS */
+.application-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.application-form input,
+.application-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.application-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  font-size: 0.98rem;
+}
+
+footer a {
+  color: #0284c7;
+  text-decoration: underline;
+  margin: 0 6px;
+}
