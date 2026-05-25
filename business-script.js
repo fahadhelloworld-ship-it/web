@@ -1,10 +1,14 @@
-﻿// Business Form - Simple & Clean
+﻿// ============================================
+// BUSINESS FORM - SIMPLE & EASY TO UNDERSTAND
+// ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // Get the form element
   const form = document.querySelector('.form-card');
   if (!form) return;
 
-  // Get form elements
+  // Get all form input elements
   const fullName = form.querySelector('input[type="text"]');
   const phone = form.querySelector('input[type="tel"]');
   const email = form.querySelector('input[type="email"]');
@@ -13,34 +17,42 @@ document.addEventListener('DOMContentLoaded', function() {
   const consent = form.querySelector('#consent1');
   const submitBtn = form.querySelector('.btn-submit');
 
-  // Initialize
+  // Start
   loadSavedData();
-  setupEventListeners();
+  setupListeners();
 
-  // ========== EVENT LISTENERS ==========
-  function setupEventListeners() {
-    // Save data while typing
-    [fullName, phone, email, country, message].forEach(input => {
+  // ============================================
+  // PART 1: EVENT LISTENERS (User Actions)
+  // ============================================
+  
+  function setupListeners() {
+    // Save data while user types
+    const inputs = [fullName, phone, email, country, message];
+    inputs.forEach(input => {
       if (input) {
         input.addEventListener('input', saveData);
         input.addEventListener('change', saveData);
       }
     });
 
-    // Validation on blur
+    // Check email/phone when user leaves the field
     if (email) email.addEventListener('blur', validateEmail);
     if (phone) phone.addEventListener('blur', validatePhone);
 
-    // Submit form
+    // Handle form submit
     submitBtn.addEventListener('click', handleSubmit);
 
-    // Save consent
+    // Save consent checkbox
     if (consent) consent.addEventListener('change', saveData);
   }
 
-  // ========== SAVE & LOAD DATA ==========
+  // ============================================
+  // PART 2: SAVE & LOAD DATA (localStorage)
+  // ============================================
+
   function saveData() {
-    const data = {
+    // Collect all form data
+    const formData = {
       fullName: fullName?.value || '',
       phone: phone?.value || '',
       email: email?.value || '',
@@ -49,84 +61,113 @@ document.addEventListener('DOMContentLoaded', function() {
       consent: consent?.checked || false,
       savedAt: new Date().toISOString()
     };
-    localStorage.setItem('formData', JSON.stringify(data));
-    console.log('Data saved ✓');
+
+    // Save to browser memory
+    localStorage.setItem('formData', JSON.stringify(formData));
+    console.log('✓ Data saved');
   }
 
   function loadSavedData() {
+    // Get saved data from browser
     const saved = localStorage.getItem('formData');
     if (!saved) return;
 
     try {
       const data = JSON.parse(saved);
+      
+      // Put saved data back into form fields
       if (fullName) fullName.value = data.fullName || '';
       if (phone) phone.value = data.phone || '';
       if (email) email.value = data.email || '';
       if (country) country.value = data.country || '';
       if (message) message.value = data.message || '';
       if (consent) consent.checked = data.consent || false;
-      console.log('Data loaded ✓');
+      
+      console.log('✓ Data loaded');
     } catch (e) {
-      console.error('Load error:', e);
+      console.error('Error loading data:', e);
     }
   }
 
-  // ========== VALIDATION ==========
+  // ============================================
+  // PART 3: VALIDATION (Check if data is valid)
+  // ============================================
+
   function validateEmail() {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const isValid = email.value.trim() === '' || emailRegex.test(email.value);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = email.value.trim() === '' || emailPattern.test(email.value);
+    
+    // Change border color if invalid
     email.style.borderColor = isValid ? '#e0dcd5' : '#ff6b6b';
     return isValid;
   }
 
   function validatePhone() {
-    const phoneRegex = /^[\d\s\-\+\(\)]{7,}$/;
-    const isValid = phone.value.trim() === '' || phoneRegex.test(phone.value);
+    const phonePattern = /^[\d\s\-\+\(\)]{7,}$/;
+    const isValid = phone.value.trim() === '' || phonePattern.test(phone.value);
+    
+    // Change border color if invalid
     phone.style.borderColor = isValid ? '#e0dcd5' : '#ff6b6b';
     return isValid;
   }
 
   function validateAllFields() {
+    // Check if full name is empty
     if (!fullName?.value.trim()) {
       showError('Enter your full name');
       return false;
     }
+
+    // Check if phone is empty
     if (!phone?.value.trim()) {
       showError('Enter your phone number');
       return false;
     }
+
+    // Check if email is empty
     if (!email?.value.trim()) {
       showError('Enter your email');
       return false;
     }
+
+    // Check if email is valid
     if (!validateEmail()) {
-      showError('Invalid email');
+      showError('Invalid email address');
       return false;
     }
+
+    // Check if phone is valid
     if (!validatePhone()) {
-      showError('Invalid phone');
+      showError('Invalid phone number');
       return false;
     }
+
+    // Check if consent is checked
     if (consent && !consent.checked) {
-      showError('Accept terms to continue');
+      showError('Please accept the terms to continue');
       return false;
     }
+
     return true;
   }
 
-  // ========== FORM SUBMISSION ==========
+  // ============================================
+  // PART 4: FORM SUBMISSION (Send data)
+  // ============================================
+
   function handleSubmit(e) {
     e.preventDefault();
 
+    // First, check all fields are valid
     if (!validateAllFields()) return;
 
-    // Show loading
+    // Show loading state
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Submitting...';
     submitBtn.disabled = true;
 
-    // Prepare data
-    const formData = {
+    // Collect final form data
+    const submissionData = {
       fullName: fullName?.value.trim() || '',
       phone: phone?.value.trim() || '',
       email: email?.value.trim() || '',
@@ -136,44 +177,53 @@ document.addEventListener('DOMContentLoaded', function() {
       submittedAt: new Date().toISOString()
     };
 
-    // Save submission
+    // Save submission to history
     const allSubmissions = JSON.parse(localStorage.getItem('submissions') || '[]');
-    allSubmissions.push(formData);
+    allSubmissions.push(submissionData);
     localStorage.setItem('submissions', JSON.stringify(allSubmissions));
 
-    console.log('Submitted:', formData);
+    console.log('Submitted:', submissionData);
 
-    // Simulate delay
+    // Wait 1.5 seconds (simulate sending)
     setTimeout(() => {
       showSuccess('Submitted! Check your email.');
       clearFormData();
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
+      
+      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 1500);
   }
 
   function clearFormData() {
+    // Empty all form fields
     if (fullName) fullName.value = '';
     if (phone) phone.value = '';
     if (email) email.value = '';
     if (country) country.value = '';
     if (message) message.value = '';
+    
+    // Clear saved data
     localStorage.removeItem('formData');
   }
 
-  // ========== NOTIFICATIONS ==========
-  function showError(msg) {
-    showNotification('error', '❌ ' + msg);
+  // ============================================
+  // PART 5: NOTIFICATIONS (Show messages)
+  // ============================================
+
+  function showError(message) {
+    showNotification('error', '❌ ' + message);
   }
 
-  function showSuccess(msg) {
-    showNotification('success', '✓ ' + msg);
+  function showSuccess(message) {
+    showNotification('success', '✓ ' + message);
   }
 
-  function showNotification(type, msg) {
-    const notif = document.createElement('div');
-    notif.style.cssText = `
+  function showNotification(type, message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.style.cssText = `
       position: fixed;
       top: 20px;
       right: 20px;
@@ -187,35 +237,48 @@ document.addEventListener('DOMContentLoaded', function() {
       color: white;
     `;
 
+    // Set color based on type
     if (type === 'error') {
-      notif.style.backgroundColor = '#ff6b6b';
+      notification.style.backgroundColor = '#ff6b6b'; // Red
     } else {
-      notif.style.backgroundColor = '#51cf66';
+      notification.style.backgroundColor = '#51cf66'; // Green
     }
 
-    notif.textContent = msg;
-    document.body.appendChild(notif);
+    notification.textContent = message;
+    document.body.appendChild(notification);
 
-    // Add animation once
+    // Add animation style (only once)
     if (!document.querySelector('[data-notif-style]')) {
       const style = document.createElement('style');
       style.setAttribute('data-notif-style', 'true');
       style.textContent = `
         @keyframes slideIn {
-          from { transform: translateX(400px); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
+          from { 
+            transform: translateX(400px); 
+            opacity: 0; 
+          }
+          to { 
+            transform: translateX(0); 
+            opacity: 1; 
+          }
         }
       `;
       document.head.appendChild(style);
     }
 
-    setTimeout(() => notif.remove(), 4000);
+    // Remove notification after 4 seconds
+    setTimeout(() => notification.remove(), 4000);
   }
 
-  // ========== SMOOTH SCROLL ==========
+  // ============================================
+  // PART 6: SMOOTH SCROLLING (Anchor links)
+  // ============================================
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
+      
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
@@ -223,6 +286,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ============================================
+  // LOG READY MESSAGE
+  // ============================================
+
   console.log('%cForm System Active ✓', 'color: #c9a96e; font-size: 14px; font-weight: bold');
-  console.log('%cData stored in: localStorage → formData, submissions', 'color: #888; font-size: 12px');
+  console.log('%cData stored in: localStorage', 'color: #888; font-size: 12px');
+
 });
